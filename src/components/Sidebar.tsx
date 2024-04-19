@@ -59,7 +59,7 @@ export default function Sidebar() {
                             <UserButton afterSignOutUrl="/" />
                             <span className="ml-2">Your Profile</span>
                         </div>
-                    </div>
+                    </div> 
                 ) : (
                     <div className="flex gap-4 items-center">
                         <Link href="/sign-up">Sign up</Link>

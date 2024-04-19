@@ -18,11 +18,11 @@ export default function RootLayout({
 }>) {
   return (
     <html>
-      <body className="flex  ">
+      <body className="flex">
         <ClerkProvider>
-          <div className="flex flex-row">
+          <div className="flex flex-row w-screen">
             <Sidebar />
-            <main className="flex-1 p-8 bg-gray-50 ml-[14vw] min-h-screen min-w-screen ">{children}</main>
+            <main className="flex-1  bg-gray-50 ml-[14vw] min-h-screen min-w-screen ">{children}</main>
           </div>
         </ClerkProvider>
       </body>
