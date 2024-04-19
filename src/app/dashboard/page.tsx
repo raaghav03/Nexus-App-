@@ -16,7 +16,8 @@ export default async function Dashboard() {
             <>
                 <h1>You are now authenticated with {user?.firstName} {user?.lastName} {user?.emailAddresses[0].emailAddress}</h1>
                 {user?.imageUrl && <Image src={user?.imageUrl} alt="Picture of the author" width={200} height={200} />}
-                ~
+              
+                
             </>
         );
     } catch (error) {

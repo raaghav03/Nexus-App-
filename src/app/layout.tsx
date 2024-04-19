@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { ClerkProvider } from '@clerk/nextjs';
 import Header from '@/components/Header';
+import Sidebar from '@/components/Sidebar';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,13 +18,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
-      <body className={inter.className}>
+    <html>
+      <body className="flex h-screen" >
+
         <ClerkProvider>
-          <Header />
-          {children}
+          <Sidebar />
+          <main className="flex-1 p-4 bg-gray-50 ml-50 ">{children}</main>
         </ClerkProvider>
       </body>
     </html>
   );
 }
+
