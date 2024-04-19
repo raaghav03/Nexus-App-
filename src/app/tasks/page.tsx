@@ -85,7 +85,7 @@ const Tasks = () => {
     const renderTaskCard = (task: Task) => (
         <div
             key={task.task_name}
-            className={`bg-white rounded-md overflow-hidden border border-gray-200 mt-2 ${task.priority === 'High' ? 'bg-red-50' : ''
+            className={`bg-white rounded-md overflow-hidden border border-gray-200 mt-2 ${task.priority === 'high' ? 'bg-red-50' : ''
                 }`}
         >
             <div className="p-4 mt-2">
@@ -139,17 +139,7 @@ const Tasks = () => {
             console.log('Task inserted successfully');
         }
 
-        const handleSubmit = () => {
-            const task = {
-                task_name,
-                task_description,
-                priority,
-                due_date,
-                category,
-            };
-            onSubmit(task);
-            onClose();
-        };
+
     };
     return (
         <>
