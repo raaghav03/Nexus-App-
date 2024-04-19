@@ -113,7 +113,7 @@ const Tasks = () => {
                         className="text-gray-500 hover:text-gray-700 font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out"
                         onClick={() => handleDelete(task.id)}
                     >
-                        <Trash2 />
+                        <p className='hover:underline'>Mark as done</p>
                     </button>
                 </div>
             </div>
