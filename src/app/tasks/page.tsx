@@ -149,7 +149,7 @@ const Tasks = () => {
             <button onClick={openModal} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 Add a task
             </button>
-            <TaskModal isOpen={isModalOpen} onClose={closeModal} onSubmit={insertTask} />
+
 
             <div className="container mx-auto py-8">
                 <h1 className="text-3xl font-bold mb-8">Tasks</h1>
