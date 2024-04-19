@@ -1,5 +1,6 @@
 import { UserProfile, auth, currentUser } from "@clerk/nextjs";
 import Image from 'next/image';
+import Link from "next/link";
 
 export default async function Dashboard() {
     try {
@@ -15,7 +16,7 @@ export default async function Dashboard() {
             <>
                 <h1>You are now authenticated with {user?.firstName} {user?.lastName} {user?.emailAddresses[0].emailAddress}</h1>
                 {user?.imageUrl && <Image src={user?.imageUrl} alt="Picture of the author" width={200} height={200} />}
-                <UserProfile />
+                ~
             </>
         );
     } catch (error) {
