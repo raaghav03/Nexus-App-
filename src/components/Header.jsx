@@ -1,7 +1,7 @@
 import { UserButton, UserProfile, auth } from "@clerk/nextjs";
 import Link from "next/link";
 
-export default async function Header() {
+export default function Header() {
   const { userId } = auth();
 
   return (
@@ -20,7 +20,6 @@ export default async function Header() {
               <Link href="/sign-in">Sign In</Link>
             </div>
           )}
-
         </div>
       </div>
     </div>
