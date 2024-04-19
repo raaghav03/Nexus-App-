@@ -1,7 +1,20 @@
 import React, { useState } from 'react';
 import { supabase } from '@/utils/supabase/client';
 
-const TaskModal = ({ isOpen, onClose,onSubmit }) => {
+interface TaskModalProps {
+    isOpen: boolean;
+    onClose: () => void;
+    onSubmit: (task: Task) => Promise<void>; // Change this line
+}
+
+interface Task {
+    task_name: string;
+    task_description: string;
+    priority: string;
+    due_date: string;
+    category: string;
+}
+const TaskModal = ({ isOpen, onClose, onSubmit }: TaskModalProps) => {
     const [task_name, setTitle] = useState('');
     const [task_description, setDescription] = useState('');
     const [priority, setPriority] = useState('');
@@ -11,17 +24,14 @@ const TaskModal = ({ isOpen, onClose,onSubmit }) => {
     if (!isOpen) {
         return null;
     }
-    const insertTask = async (task) => {
-        const { error } = await supabase
-            .from('yourtasks')
-            .insert([task]);
+    const insertTask = async (task: Task) => {
+        const { error } = await supabase.from('yourtasks').insert([task]);
 
         if (error) {
             console.error('Error inserting task:', error);
         } else {
             console.log('Task inserted successfully');
         }
-
     };
     const handleSubmit = () => {
         const task = {
@@ -31,7 +41,7 @@ const TaskModal = ({ isOpen, onClose,onSubmit }) => {
             due_date,
             category,
         };
-        onSubmit(task); 
+        onSubmit(task);
         onClose();
     };
 

@@ -6,13 +6,18 @@ import { Trash2 } from 'lucide-react';
 
 
 interface Task {
+    id: string;
     task_name: string;
     task_description: string;
     priority: 'high' | 'medium' | 'low';
     due_date: string;
     category: 'design' | 'frontend' | 'backend' | 'marketing';
 }
-
+interface TaskModalProps {
+    isOpen: boolean;
+    onClose: () => void;
+    onSubmit: (task: Task) => Promise<void>;
+}
 const Tasks = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -117,7 +122,7 @@ const Tasks = () => {
 
     const renderCards = () => (
         <div className="flex flex-col gap-6">
-            {tasks.map((task) => renderTaskCard(task))}
+            {tasks?.map((task) => renderTaskCard(task))}
         </div>
     );
 
@@ -128,19 +133,17 @@ const Tasks = () => {
     const highPriorityTasks = tasks.filter((task) => task.priority === 'high');
     const mediumPriorityTasks = tasks.filter((task) => task.priority === 'medium');
     const lowPriorityTasks = tasks.filter((task) => task.priority === 'low');
-    const insertTask = async (task) => {
-        const { error } = await supabase
-            .from('yourtasks')
-            .insert([task]);
-
-        if (error) {
-            console.error('Error inserting task:', error);
-        } else {
+    const insertTask = async (task: Task): Promise<void> => {
+        try {
+            await supabase.from('yourtasks').insert([task]);
             console.log('Task inserted successfully');
+            fetchTasks(); // Refresh the task list
+        } catch (error) {
+            console.error('Error inserting task:', error);
         }
-
-
     };
+
+
     return (
         <>
             <button onClick={openModal} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
