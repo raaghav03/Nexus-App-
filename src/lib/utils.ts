@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -118,4 +119,11 @@ export function randomID(len: number) {
     result += chars.charAt(Math.floor(Math.random() * maxPos));
   }
   return result;
+=======
+import { type ClassValue, clsx } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+>>>>>>> 9834072c431ac2902bccbd9e42282de0f04d2116
 }
