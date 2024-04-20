@@ -11,8 +11,10 @@ export default function Sidebar() {
 
     return (
         <div className="fixed top-0 left-0 h-screen bg-white w-[14vw] p-4 border-r border-gray-200 flex flex-col">
+
             <nav className="flex-grow">
                 <ul className="space-y-2">
+
                     <li>
                         <Link
                             href="/"
@@ -22,7 +24,7 @@ export default function Sidebar() {
                             <span>Home</span>
                         </Link>
                     </li>
-                    
+
                     <li>
                         <Link
                             href="/videoCall"
@@ -32,7 +34,7 @@ export default function Sidebar() {
                             <span>Video Call</span>
                         </Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link
                             href="/chat"
                             className={`block px-4 py-2 rounded gap-2 flex items-center transition-colors duration-200 ${defaultColor} ${hoverColor} ${hoverBgColor}`}
@@ -40,7 +42,7 @@ export default function Sidebar() {
                             <MessageSquare className={`w-6 h-6 ${defaultColor} ${hoverColor}`} />
                             <span>Chat</span>
                         </Link>
-                    </li>
+                    </li> */}
                     <li>
                         <Link
                             href="/tasks"
@@ -59,7 +61,7 @@ export default function Sidebar() {
                             <UserButton afterSignOutUrl="/" />
                             <span className="ml-2">Your Profile</span>
                         </div>
-                    </div> 
+                    </div>
                 ) : (
                     <div className="flex gap-4 items-center">
                         <Link href="/sign-up">Sign up</Link>
