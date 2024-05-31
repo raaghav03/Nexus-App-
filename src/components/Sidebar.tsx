@@ -10,7 +10,7 @@ export default function Sidebar() {
     const hoverBgColor = "hover:bg-gray-100";
 
     return (
-        <div className="fixed top-0 left-0 h-screen bg-white w-[14vw] p-4 border-r border-gray-200 flex flex-col">
+        <div className="fixed top-0 left-0 h-screen bg-gray-100 w-[14vw] p-4 border-r border-gray-200 flex flex-col">
 
             <nav className="flex-grow">
                 <ul className="space-y-2">
